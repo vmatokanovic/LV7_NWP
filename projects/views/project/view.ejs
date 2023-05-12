@@ -1,0 +1,89 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2"><%= project.name %></h1>
+  <div class="btn-toolbar mb-2 mb-md 0">
+    <div class="btn-group me-2">
+      <a href="/" class="btn btn-sm btn-outline-secondary btn-danger">Back</a>
+    </div>
+  </div>
+</div>
+
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active"><%= project.name %></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col text-end fw-lighter">
+      <b>Last Updated: <%= new Date(project.updatedAt).toUTCString() %></b>
+      <!-- <b>Project ID: <%= project._id %></b> -->
+    </div>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Manager:</b></div>
+      <div class="col"><%= project.manager %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Name:</b></div>
+      <div class="col"><%= project.name %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Description:</b></div>
+      <div class="col"><%= project.description %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Price:</b></div>
+      <div class="col"><%= project.price %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Start Date:</b></div>
+      <div class="col"><%= project.startDate %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>End Date:</b></div>
+      <div class="col"><%= project.endDate %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Jobs done:</b></div>
+      <div class="col"><%= project.jobsDone %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col" style="max-width: 140px"><b>Members:</b></div>
+      <div class="col">
+        <% for (let i = 0; i < project.members.length; i++) { %> <%=
+        project.members[i] %><br />
+        <% } %>
+      </div>
+    </div>
+  </li>
+</ul>

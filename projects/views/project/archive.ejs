@@ -1,0 +1,37 @@
+<div
+  class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">Edit: <%= project.name %></h1>
+  <div class="btn-toolbar mb-2 mb-md 0">
+    <div class="btn-group me-2">
+      <a class="btn btn-sm btn-outline-secondary btn-danger" href="/">Back</a>
+    </div>
+  </div>
+</div>
+
+<div class="col py-3">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active"><%= project.name %></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col text-end fw-lighter">
+      <b>Last Updated: <%= new Date(project.updatedAt).toUTCString() %></b>
+      <!-- <b>ProjectId: <%= project._id %></b> -->
+    </div>
+  </div>
+</div>
+
+<form action="/archive/<%= project._id %>?_method=PUT" method="POST">
+  <div>
+    <h2>Are you sure that you want to archive this project?</h2>
+  </div>
+
+  <div class="form-group mb-4">
+    <button type="submit" class="btn btn-success">Archive Project</button>
+  </div>
+</form>
